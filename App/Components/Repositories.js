@@ -4,10 +4,15 @@ import PropTypes from 'prop-types';
 
 import Badge from './Badge';
 import Separator from './Helpers/Separator';
+import RepoView from './Helpers/RepoView';
 
 class Repositories extends Component {
   openPage(url) {
-    console.log('View Each Repository')
+    this.props.navigator.push({
+      title: 'Web View',
+      component: RepoView,
+      passProps: { url }
+    });
   }
 
   render() {
