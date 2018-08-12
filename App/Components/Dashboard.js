@@ -4,6 +4,7 @@ import { Text, View, StyleSheet, Image, TouchableHighlight } from 'react-native'
 import Profile from './Profile';
 import api from '../Utils/api';
 import Repositories from './Repositories';
+import Notes from './Notes';
 
 
 export class Dashboard extends Component {
@@ -48,7 +49,15 @@ export class Dashboard extends Component {
   }
 
   goToNotes() {
-    console.log('Going to Notes')
+    api.getNotes(this.props.userInfo.login)
+      .then((res) => {
+        res = res || {};
+        this.props.navigator.push({
+          title: 'Notes',
+          component: Notes,
+          passProps: { userInfo: this.props.userInfo, notes: res }
+        });
+    });
   }
   
   render() {
