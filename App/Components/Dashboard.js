@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, Image, TouchableHighlight } from 'react-native'
 
 import Profile from './Profile';
+import api from '../Utils/api';
+import Repositories from './Repositories';
 
 
 export class Dashboard extends Component {
@@ -34,7 +36,15 @@ export class Dashboard extends Component {
   }
 
   goToRepos() {
-    console.log('Going to Repos')
+    api.getRepos(this.props.userInfo.login)
+      .then((res) => {
+        console.log('Res', res)
+        this.props.navigator.push({
+          title: 'Repos',
+          component: Repositories,
+          passProps: { userInfo: this.props.userInfo, repos: res }
+        });
+    });
   }
 
   goToNotes() {
