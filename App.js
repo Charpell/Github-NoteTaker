@@ -9,7 +9,7 @@ export default class App extends React.Component {
     return (
       <NavigatorIOS 
         initialRoute={{
-          title: 'Github Notetaker',
+          title: 'Github',
           component: Main
         }}
         style={styles.container}
