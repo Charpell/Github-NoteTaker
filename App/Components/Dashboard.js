@@ -6,7 +6,6 @@ export class Dashboard extends Component {
     return (
       <View style={styles.container}>
         <Text> This is the Dashboard </Text>
-        <Text>{this.props.userInfo}</Text>
       </View>
     )
   }

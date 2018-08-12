@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, TextInput, TouchableHighlight } from 'react-native'
+import { Text, View, StyleSheet, TextInput, TouchableHighlight, ActivityIndicator } from 'react-native'
 
 import api from '../Utils/api';
 import Dashboard from './Dashboard';
@@ -52,6 +52,10 @@ export default class Main extends Component {
   }
 
   render() {
+    const showErr = (
+      this.state.error ? <Text> {this.state.error} </Text> : <View></View>
+    );
+
     return (
       <View style={styles.mainContainer}>
         <Text style={styles.title}> Search for a Github User </Text>
@@ -66,6 +70,12 @@ export default class Main extends Component {
           underlayColor="white" >
           <Text style={styles.buttonText}> SEARCH </Text>
         </TouchableHighlight>
+        <ActivityIndicator
+          animating={this.state.isLoading}
+          color='#111'
+          size='large'
+        />
+        {showErr}
       </View>
     )
   }
