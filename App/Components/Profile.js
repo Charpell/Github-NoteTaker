@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, ScrollView } from 'react-native'
 
+import Separator from './Helpers/Separator';
+
+
 import PropTypes from 'prop-types';
 import Badge from './Badge';
 
@@ -24,11 +27,12 @@ export default class Profile extends Component {
               <Text style={styles.rowTitle}> {this.getRowTitle(item)} </Text>
               <Text style={styles.rowContent}> {userInfo[item]} </Text>
             </View>
+            <Separator />
           </View>
         )
       }
     });
-    
+
     return (
       <ScrollView style={styles.container}>
         <Badge userInfo={userInfo} />
