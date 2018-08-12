@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, Image, TouchableHighlight } from 'react-native'
 
+import Profile from './Profile';
+
+
 export class Dashboard extends Component {
   makeBackground(btn) {
     var obj = {
@@ -23,6 +26,11 @@ export class Dashboard extends Component {
   
   goToProfile() {
     console.log('Going to Profiles')
+    this.props.navigator.push({
+      title: 'Profile Page',
+      component: Profile,
+      passProps: {userInfo: this.props.userInfo}
+    });
   }
 
   goToRepos() {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Image } from 'react-native'
+import { Text, View, Image, StyleSheet } from 'react-native'
 
 import PropTypes from 'prop-types';
 
@@ -22,7 +22,6 @@ Badge.propTypes = {
 };
 
 
-export default Badge;
 
 var styles = StyleSheet.create({
   container: {
